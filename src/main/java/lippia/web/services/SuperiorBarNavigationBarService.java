@@ -14,8 +14,15 @@ public class SuperiorBarNavigationBarService extends ActionManager {
         navigateTo(PropertyManager.getProperty("web.base.url"));
     }
 
-
     public static void tapMenu( ) {
         WebActionManager.click( SHOP_MENU_BUTTON );
+    }
+
+    public static void tapHomeMenu( ) {
+        WebActionManager.click( HOME_MENU_BUTTON );
+    }
+
+    public static void tapMyAccountMenu( ) {
+        WebActionManager.click( MY_ACCOUNT_MENU_BUTTON );
     }
 }

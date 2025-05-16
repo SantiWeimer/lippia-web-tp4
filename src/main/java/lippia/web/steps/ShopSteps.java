@@ -14,7 +14,7 @@ public class ShopSteps extends PageSteps {
         SuperiorBarNavigationBarService.navegarWeb();
     }
 
-    @When( "The client tap on Shop menu" )
+    @When( "El usuario hace click en el boton Shop menu" )
     public void theClientTapOnShop() {
         SuperiorBarNavigationBarService.tapMenu();
     }
