@@ -10,10 +10,6 @@ import lippia.web.services.SuperiorBarNavigationBarService;
 
 public class MyAccountSteps extends PageSteps {
 
-    @When("El usuario hace click en My Account")
-    public void accountMenu() {
-        SuperiorBarNavigationBarService.tapMyAccountMenu();
-    }
 
     //ORDERS
     @When("El usuario hace click en el boton Orders")
@@ -24,6 +20,17 @@ public class MyAccountSteps extends PageSteps {
     @Then("El usuario es redirigido al Orders de My Account donde visualiza sus pedidos")
     public void comprobateOrdersContent() {
         MyAccountService.comprobateOrdersContent();
+    }
+
+    //ACCOUNT DETAILS
+    @When("El usuario hace click en el boton Account Details")
+    public void pressAccountDetailsButton() {
+        MyAccountService.tapAccountDetailsButton();
+    }
+
+    @Then("El usuario puede ver los detalles de su cuenta y cambiar su contraseña")
+    public void comprobateAccountDetailsContent() {
+        MyAccountService.comprobateAccountDetailsContent();
     }
 
     //LOGOUT

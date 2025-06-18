@@ -14,9 +14,8 @@ Feature: Home
     When El usuario hace click en el boton Shop menu
     And El usuario hace click en el boton Home menu
     Then El usuario visualiza solo '3' arrivals
-    ##falla el then
 
-  @ComprobarArrivals
+  #@ComprobarArrivals
   Scenario Outline: Comprobar que el arrival redireccione a la pagina
     Given El usuario se encuentra en la landing page
     When El usuario hace click en el boton Shop menu
@@ -30,3 +29,31 @@ Feature: Home
 
     |nombreArrival|
     |Selenium Ruby|
+
+  #Case 17
+  @CompletarDatosDeCompra @HomeCase17
+  Scenario: El usuario puede completar los datos de facturación correctamente
+    Given El usuario se encuentra en la landing page
+    When El usuario hace click en el boton del menu Shop
+    And El usuario hace click en el boton del menu Home
+    And El usuario hace click en el boton del primer arrival
+    And El usuario hace click en el boton Add to basket
+    And El usuario hace click en el boton del menu Basket
+    And El usuario hace click en el boton Proceed to checkout
+    Then El usuario visualiza la pagina de checkout correctamente
+    And El usuario puede completar los datos de facturación
+
+  #Case 18
+  @CompletarDatosDeCompra @HomeCase18
+  Scenario: El usuario realiza una compra correctamente desde el home
+    Given El usuario se encuentra en la landing page
+    When El usuario hace click en el boton del menu Shop
+    And El usuario hace click en el boton del menu Home
+    And El usuario hace click en el boton del primer arrival
+    And El usuario hace click en el boton Add to basket
+    And El usuario hace click en el boton del menu Basket
+    And El usuario hace click en el boton Proceed to checkout
+    And El usuario completa los datos de facturación
+    And El usuario hace click en el boton Place order
+    Then El usuario realiza la compra correctamente
+

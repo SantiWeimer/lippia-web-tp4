@@ -4,40 +4,52 @@ Feature: Login
    @Smoke @LoginExitoso
   Scenario Outline: Login exitoso
     Given El usuario se encuentra en la landing page
-    When El usuario hace click en My Account
+    When El usuario hace click en el boton del menu My Account
     And El usuario ingresa su usuario <usuario>
-    And El usuario ingresa su contraseña <contraseña>
+    And El usuario ingresa su contraseña <contrasena>
     And El usuario hace click en el boton Login
     Then El usuario es redirigido al dashboard de My Account donde se muestra su usuario <usuario>
-    ##falla el boton de login
+
     Examples:
-    |usuario          |contraseña     |
+    |usuario          |contrasena     |
     |maildeprueba     |maildeprueba   |
 
-  @LoginFallido
+  @LoginFallido @UsuarioErroneo @ContraseñaErronea
   Scenario Outline: Login con usuario y contraseña erroneos
     Given El usuario se encuentra en la landing page
-    When El usuario hace click en My Account
+    When El usuario hace click en el boton del menu My Account
     And El usuario ingresa su usuario <usuario>
-    And El usuario ingresa su contraseña <contraseña>
+    And El usuario ingresa su contraseña <contrasena>
     And El usuario hace click en el boton Login
     Then El usuario no puede ingresar y la pagina le indica el error: <error>
-    ##falla el boton de login
-    ##comprobar el then
+
     Examples:
-      |usuario        |contraseña     |error                                                                                                                                  |
+      |usuario        |contrasena     |error                                                                                                                                  |
       |maildeprueba2  |maildeprueba2  |Error: The username maildeprueba2 is not registered on this site. If you are unsure of your username, try your email address instead.  |
 
 
-  @LoginFallido
+  @LoginFallido @LoginContraseñaVacia
   Scenario Outline: Login con usuario ingresado y con contraseña vacia
     Given El usuario se encuentra en la landing page
-    When El usuario hace click en My Account
+    When El usuario hace click en el boton del menu My Account
     And El usuario ingresa su usuario <usuario>
     And El usuario hace click en el boton Login
     Then El usuario no puede ingresar y la pagina le indica el error: <error>
-    ##falla el boton de login
-    ##comprobar el then
+
     Examples:
       |usuario        |error                         |
       |maildeprueba   |Error: Password is required.  |
+
+  ##Case 7
+  @LoginFallido @UsuarioEnMayusculas @ContraseñaEnMayusculas @LoginCase7
+  Scenario Outline: Login con usuario y contraseña en mayúsculas
+    Given El usuario se encuentra en la landing page
+    When El usuario hace click en el boton del menu My Account
+    And El usuario ingresa su usuario <usuario>
+    And El usuario ingresa su contraseña <contrasena>
+    And El usuario hace click en el boton Login
+    Then El usuario no puede ingresar y la pagina le indica el error: <error>
+
+    Examples:
+      |usuario          |contrasena     |error                                                                                            |
+      |MAILDEPRUEBA     |MAILDEPRUEBA   |Error: The password you entered for the username MAILDEPRUEBA is incorrect. Lost your password?  |

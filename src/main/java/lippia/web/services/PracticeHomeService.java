@@ -8,6 +8,8 @@ import static com.crowdar.core.actions.ActionManager.click;
 import static com.crowdar.core.actions.ActionManager.isPresent;
 import static com.crowdar.core.actions.WebActionManager.navigateTo;
 
+import static lippia.web.constants.PracticeHomeConstants.*;
+
 public class PracticeHomeService {
 
     public static void navegarWeb(){
@@ -15,7 +17,7 @@ public class PracticeHomeService {
     }
 
     public static void clickShopButton() {
-        click(PracticeHomeConstants.BUTTON_SHOP_XPATH);
+        click(BUTTON_SHOP_XPATH);
     }
 
     public static void verificarShopPage() {

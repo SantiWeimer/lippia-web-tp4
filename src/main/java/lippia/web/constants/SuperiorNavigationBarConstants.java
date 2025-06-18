@@ -8,5 +8,6 @@ public class SuperiorNavigationBarConstants {
 
     public static final String MY_ACCOUNT_MENU_BUTTON = "xpath://*[@id='menu-item-50']/a";
 
-
+    public static final String BASKET_MENU_BUTTON = "xpath://*[@id='wpmenucartli']/a";
+    public static final String BASKET_MENU_PRICE_TEXT = "xpath://*[@id='wpmenucartli']/a/span[2]";
 }

@@ -14,13 +14,10 @@ public class ShopSteps extends PageSteps {
         SuperiorBarNavigationBarService.navegarWeb();
     }
 
-    @When( "El usuario hace click en el boton Shop menu" )
-    public void theClientTapOnShop() {
-        SuperiorBarNavigationBarService.tapMenu();
-    }
 
-    @Then( "The client see Filter By Price" )
-    public void theClientSee(  ) {
-        ShopService.verifyPage();
+
+    @When( "El usuario hace click en el boton del shop (.*)$" )
+    public void tapOnShopButton(String buttonName) {
+        ShopService.tapShopButton(buttonName);
     }
 }
