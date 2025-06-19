@@ -19,4 +19,12 @@ public class CheckoutConstants {
     public static final String INPUT_POSTCODE = "xpath://*[@id='billing_postcode']";
 
     public static final String PLACE_ORDER_BUTTON = "xpath://*[@id='place_order']";
+
+    public static final String TAX_TEXT = "xpath://*[@id='order_review']/table/tfoot/tr[2]/td/span";
+    public static final String TOTAL_TEXT = "xpath://*[@id='order_review']/table/tfoot/tr[3]/td/strong/span";
+
+    public static final String DROPDOWN_MENU = "xpath://*[@id='select2-chosen-1']";
+    public static final String DROPDOWN_MENU_HUNGARY = "xpath://*[@id='select2-result-label-850']";
+
+
 }

@@ -10,11 +10,6 @@ import lippia.web.services.SuperiorBarNavigationBarService;
 
 public class LoginSteps extends PageSteps {
 
-    @Given("El usuario se encuentra en la landing page")
-    public void home() {
-        HomeService.naviToLandingPage();
-    }
-
     @When("El usuario ingresa su usuario (.*)$")
     public void enterUser(String user) {
         MyAccountService.enterUserCriteria(user);
@@ -30,14 +25,9 @@ public class LoginSteps extends PageSteps {
         MyAccountService.tapLoginButton();
     }
 
-    @Then("El usuario es redirigido al dashboard de My Account donde se muestra su usuario (.*)$")
-    public void userLogged(String user) {
-        MyAccountService.comprobateUser(user);
-    }
-
     @Then("El usuario no puede ingresar y la pagina le indica el error: (.*)$")
     public void showError(String error) {
-        MyAccountService.showError(error);
+        MyAccountService.compareError(error);
     }
 
 

@@ -9,15 +9,9 @@ import lippia.web.services.SuperiorBarNavigationBarService;
 
 public class ShopSteps extends PageSteps {
 
-    @Given("The client is in google page")
-    public void home() {
-        SuperiorBarNavigationBarService.navegarWeb();
-    }
-
-
-
     @When( "El usuario hace click en el boton del shop (.*)$" )
     public void tapOnShopButton(String buttonName) {
         ShopService.tapShopButton(buttonName);
     }
+
 }

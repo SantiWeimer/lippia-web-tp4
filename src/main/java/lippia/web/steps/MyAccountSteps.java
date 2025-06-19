@@ -44,5 +44,11 @@ public class MyAccountSteps extends PageSteps {
         MyAccountService.comprobateLogout();
     }
 
+    @Then("El usuario es redirigido al dashboard de My Account donde se muestra su usuario (.*)$")
+    public void userLogged(String user) {
+        MyAccountService.comprobateUser(user);
+    }
+
+
 
 }

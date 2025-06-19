@@ -13,9 +13,6 @@ import static lippia.web.constants.ProductConstants.*;
 
 public class SuperiorBarNavigationBarService extends ActionManager {
 
-    public static void navegarWeb(){
-        navigateTo(PropertyManager.getProperty("web.base.url"));
-    }
 
     public static void tapMenuButton(String button) {
 

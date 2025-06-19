@@ -2,6 +2,7 @@ package lippia.web.services;
 import com.crowdar.core.PropertyManager;
 import com.crowdar.core.actions.WebActionManager;
 import lippia.web.constants.PracticeHomeConstants;
+import org.bouncycastle.oer.Switch;
 import org.testng.Assert;
 
 import java.util.Objects;
@@ -41,6 +42,49 @@ public class CheckoutService {
     public static void tapPlaceOrderButton() {
 
         WebActionManager.click( PLACE_ORDER_BUTTON );
+
+    }
+
+
+    public static void changeCountry(String country) {
+        WebActionManager.click( DROPDOWN_MENU );
+
+        switch(country)
+        {
+            case "Hungary":
+                WebActionManager.click( DROPDOWN_MENU_HUNGARY );
+                break;
+
+        }
+
+
+
+    }
+
+    public static void comprobateTaxes() {
+
+        int taxText = (int) Double.parseDouble(
+                WebActionManager.getElement( TAX_TEXT ).getText().replaceAll("[^\\d.]", "")
+        );
+
+        int totalText = (int) Double.parseDouble(
+                WebActionManager.getElement( TOTAL_TEXT ).getText().replaceAll("[^\\d.]", "")
+        );
+
+        int taxPercentage = (int) Math.ceil((taxText * 100.0) / totalText);
+
+        String country = WebActionManager.getElement( DROPDOWN_MENU ).getText();
+
+        if(Objects.equals(country, "India"))
+        {
+            Assert.assertEquals(taxPercentage, 2);
+        }
+        else
+        {
+            Assert.assertEquals(taxPercentage, 5);
+        }
+
+
 
     }
 }

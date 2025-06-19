@@ -14,7 +14,7 @@ public class ShopService {
         switch (button)
         {
             case "Add to basket":
-                WebActionManager.click( ADD_TO_BASKET_SHOP_BUTTON );
+                WebActionManager.click( ADD_TO_BASKET_SHOP_BUTTON, false );
                 break;
         }
 

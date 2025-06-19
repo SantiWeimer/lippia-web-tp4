@@ -14,9 +14,18 @@ public class BasketService {
         Assert.assertEquals(WebActionManager.getElements( BASKET_TOTALS_CONTENT ).size(), 3);
         WebActionManager.isVisible( BASKET_SUBTOTALS_TEXT );
         WebActionManager.isVisible( BASKET_TOTAL_TEXT );
-        Assert.assertNotEquals(WebActionManager.getElement( BASKET_SUBTOTALS_TEXT ).getText(), WebActionManager.getElement( BASKET_TOTAL_TEXT ).getText());
-        //Assert.assertTrue(Integer.parseInt(WebActionManager.getElement( BASKET_SUBTOTALS_TEXT ).getText()) > Integer.parseInt(WebActionManager.getElement( BASKET_TOTAL_TEXT ).getText()));
+    }
 
+    public static void compareTotalsContent() {
+
+        int subtotal = (int) Double.parseDouble(
+                WebActionManager.getElement(BASKET_SUBTOTALS_TEXT).getText().replaceAll("[^\\d.]", "")
+        );
+        int total = (int) Double.parseDouble(
+                WebActionManager.getElement(BASKET_TOTAL_TEXT).getText().replaceAll("[^\\d.]", "")
+        );
+
+        Assert.assertTrue(subtotal < total);
     }
 
     public static void tapProceedToCheckoutButton() {

@@ -41,7 +41,7 @@ public class MyAccountService {
     }
 
 
-    public static void showError(String error) {
+    public static void compareError(String error) {
         Assert.assertEquals(error, WebActionManager.getElement(LOGIN_ERROR_TEXT).getText());
     }
 

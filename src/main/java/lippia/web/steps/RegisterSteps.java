@@ -26,6 +26,6 @@ public class RegisterSteps {
 
     @Then("El usuario no puede registrarse y la pagina le indica el error: (.*)$")
     public void showError(String error) {
-        MyAccountService.showError(error);
+        MyAccountService.compareError(error);
     }
 }

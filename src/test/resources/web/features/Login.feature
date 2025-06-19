@@ -53,3 +53,19 @@ Feature: Login
     Examples:
       |usuario          |contrasena     |error                                                                                            |
       |MAILDEPRUEBA     |MAILDEPRUEBA   |Error: The password you entered for the username MAILDEPRUEBA is incorrect. Lost your password?  |
+
+  ##Case 8
+  @LoginFallido @LoginCase8
+  Scenario Outline: El usuario no puede volver a logearse al apretar el boton atras
+    Given El usuario se encuentra en la landing page
+    When El usuario hace click en el boton del menu My Account
+    And El usuario ingresa su usuario <usuario>
+    And El usuario ingresa su contraseña <contrasena>
+    And El usuario hace click en el boton Login
+    And El usuario hace click en el boton Logout
+    And El usuario hace click en el boton atras del navegador
+    Then El usuario es redirigido al inicio de sesion
+
+    Examples:
+      |usuario          |contrasena     |
+      |maildeprueba     |maildeprueba   |
